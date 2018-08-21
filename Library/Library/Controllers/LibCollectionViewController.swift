@@ -25,6 +25,7 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         self.collectionView?.allowsMultipleSelection = true
         self.collectionView?.alwaysBounceVertical = true
         self.collectionView?.showsVerticalScrollIndicator = false
+        self.collectionView?.backgroundColor = .white
     }
 
 
@@ -40,7 +41,6 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         return 0
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return 0
@@ -48,6 +48,11 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LibCollectionViewCell
+        
+        cell.bookTitle.text = "Book Title"
+        cell.authorName.text = "Author Name"
+        cell.reviewButton.setTitle(Strings().reviewButtonTitle, for: .normal)
+        
         
         return cell
     }
@@ -58,7 +63,7 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
     }
     
 
-    // MARK: - Delegates
+    // MARK: - Delegates and Interfaces
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
@@ -69,5 +74,15 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
             
             return 30.0
         }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: 0, height: 30)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        return CGSize(width: 0, height: 30)
+    }
 
 }
