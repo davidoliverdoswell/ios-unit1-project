@@ -18,11 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let libTableViewController = LibTableViewController()
-        let navigationController = UINavigationController(rootViewController: libTableViewController)
+        let layout = UICollectionViewFlowLayout()
+        
+        let libCollectionViewController = LibCollectionViewController(collectionViewLayout: layout)
+        
+        let navigationController = UINavigationController(rootViewController: libCollectionViewController)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        navigationController.navigationBar.prefersLargeTitles = true
         
         return true
     }
