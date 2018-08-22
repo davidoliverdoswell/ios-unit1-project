@@ -27,9 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-//        navigationController.hidesBarsOnTap = false
-//        navigationController.hidesBarsOnSwipe = false
-//        navigationController.navigationBar.prefersLargeTitles = true
+        // testing authentication
+        
+        let viewController = UIViewController()
+        
+        GoogleBooksAuthorizationClient.shared.authorizeIfNeeded(presenter: viewController) { (error) in
+            if let error = error {
+                NSLog("Error authenticating: \(error)")
+            }
+        }
         
         return true
     }

@@ -13,6 +13,7 @@ class Strings {
     // MARK: - Table view
     
     public let navigationTitle = "Library"
+    public let searchBarPlaceholder = "search books"
     
     // MARK: -  Table view cell
     

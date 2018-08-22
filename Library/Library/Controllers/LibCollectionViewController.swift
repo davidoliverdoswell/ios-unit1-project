@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "reuseIdentifier"
 
-class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     let volumeController = VolumeController()
     
@@ -36,7 +36,9 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 64, width: Int(UIScreen.main.bounds.width), height: searchBarHeight))
         searchBar.tintColor = .black
+        searchBar.placeholder = Strings().searchBarPlaceholder
         searchBar.autocorrectionType = .default
+        searchBar.delegate = self
         view.addSubview(searchBar)
         
         // Call Dismiss Keyboard
@@ -106,7 +108,7 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: 0, height: searchBarHeight)
+        return CGSize(width: 0, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
