@@ -11,8 +11,9 @@ import Foundation
 struct BookRepresentation: Codable, Equatable {
     
     var bookTitle: String
+    var bookAuthor: String
     var bookImage: Data
     var bookReview: String
     var haveRead: Bool
-    var bookIdentifier: String
+    var bookID: String
 }

@@ -1,14 +1,14 @@
 //
-//  LibCollectionViewCell.swift
+//  BookCell.swift
 //  Library
 //
-//  Created by David Oliver Doswell on 8/21/18.
+//  Created by David Oliver Doswell on 8/22/18.
 //  Copyright © 2018 David Oliver Doswell. All rights reserved.
 //
 
 import UIKit
 
-class LibCollectionViewCell: UICollectionViewCell {
+class BookCell: UICollectionViewCell {
     
     var book: Book? {
         didSet {
@@ -36,7 +36,7 @@ class LibCollectionViewCell: UICollectionViewCell {
         return title
     }()
     
-    let authorName: UILabel = {
+    let bookAuthor: UILabel = {
         let name = UILabel()
         name.textAlignment = .left
         name.lineBreakMode = .byWordWrapping
@@ -46,7 +46,7 @@ class LibCollectionViewCell: UICollectionViewCell {
         return name
     }()
     
-    let reviewButton: UIButton = {
+    let bookReview: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -59,8 +59,8 @@ class LibCollectionViewCell: UICollectionViewCell {
     func setUpViews() {
         
         addSubview(bookTitle)
-        addSubview(authorName)
-        addSubview(reviewButton)
+        addSubview(bookAuthor)
+        addSubview(bookReview)
         
         // Cell
         
@@ -77,15 +77,15 @@ class LibCollectionViewCell: UICollectionViewCell {
         bookTitle.widthAnchor.constraint(equalToConstant: 144).isActive = true
         bookTitle.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
-        authorName.topAnchor.constraint(equalTo: bookTitle.bottomAnchor, constant: 10).isActive = true
-        authorName.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
-        authorName.widthAnchor.constraint(equalToConstant: 145).isActive = true
-        authorName.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        bookAuthor.topAnchor.constraint(equalTo: bookTitle.bottomAnchor, constant: 10).isActive = true
+        bookAuthor.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        bookAuthor.widthAnchor.constraint(equalToConstant: 145).isActive = true
+        bookAuthor.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
-        reviewButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        reviewButton.rightAnchor.constraint(equalTo: rightAnchor, constant: 2).isActive = true
-        reviewButton.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        reviewButton.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        bookReview.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        bookReview.rightAnchor.constraint(equalTo: rightAnchor, constant: 2).isActive = true
+        bookReview.widthAnchor.constraint(equalToConstant: 75).isActive = true
+        bookReview.heightAnchor.constraint(equalToConstant: 17).isActive = true
     }
     
 }

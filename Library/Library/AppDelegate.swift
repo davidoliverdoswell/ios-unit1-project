@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         
-        let libCollectionViewController = LibCollectionViewController(collectionViewLayout: layout)
+        let bookCollectionViewController = BookCollectionViewController(collectionViewLayout: layout)
         
-        let navigationController = UINavigationController(rootViewController: libCollectionViewController)
+        let navigationController = UINavigationController(rootViewController: bookCollectionViewController)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

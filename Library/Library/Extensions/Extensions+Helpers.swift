@@ -1,5 +1,5 @@
 //
-//  SearchBarXT+Helpers.swift
+//  Extensions+Helpers.swift
 //  Library
 //
 //  Created by David Oliver Doswell on 8/22/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension LibCollectionViewController: UISearchBarDelegate {
-        
+extension BookCollectionViewController: UISearchBarDelegate {
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
         // Display possible list of google books
