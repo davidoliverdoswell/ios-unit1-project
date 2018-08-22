@@ -13,7 +13,7 @@ private let reuseIdentifier = "reuseIdentifier"
 class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let volumeController = VolumeController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +31,24 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         // Title
         
         self.title = Strings().navigationTitle
+        
+        // Search Bar
+        
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 64, width: Int(UIScreen.main.bounds.width), height: searchBarHeight))
+        searchBar.tintColor = .black
+        searchBar.autocorrectionType = .default
+        view.addSubview(searchBar)
+        
+        // Call Dismiss Keyboard
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    // MARK: - Dismiss Keyboard
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
 
@@ -63,7 +81,14 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // show image
+        // get selected item at index path
+        
+        
+        
+        // show detail
+        
+        let libDetail = LibDetailViewController()
+        self.navigationController?.pushViewController(libDetail, animated: true)
     }
     
 
@@ -81,12 +106,19 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: 10, height: 30)
+        return CGSize(width: 0, height: searchBarHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         
-        return CGSize(width: 0, height: 30)
+        return CGSize(width: 0, height: 50)
     }
+    
+    // MARK: - Dismiss keyboard
 
+    
+    
+    // Search Bar Height
+    
+    let searchBarHeight = 50
 }

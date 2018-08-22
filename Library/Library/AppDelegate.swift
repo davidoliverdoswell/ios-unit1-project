@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        navigationController.hidesBarsOnTap = false
-        navigationController.hidesBarsOnSwipe = false
-        navigationController.navigationBar.prefersLargeTitles = true
+//        navigationController.hidesBarsOnTap = false
+//        navigationController.hidesBarsOnSwipe = false
+//        navigationController.navigationBar.prefersLargeTitles = true
         
         return true
     }
