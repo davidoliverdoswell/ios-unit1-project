@@ -11,21 +11,26 @@ import UIKit
 private let reuseIdentifier = "reuseIdentifier"
 
 class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    let volumeController = VolumeController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
         // Register cell classes
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(LibCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Housework
         
-        self.collectionView?.allowsMultipleSelection = true
-        self.collectionView?.alwaysBounceVertical = true
-        self.collectionView?.showsVerticalScrollIndicator = false
-        self.collectionView?.backgroundColor = .white
+        self.collectionView!.allowsMultipleSelection = true
+        self.collectionView!.alwaysBounceVertical = true
+        self.collectionView!.showsVerticalScrollIndicator = false
+        self.collectionView!.backgroundColor = .white
+        
+        // Title
+        
+        self.title = Strings().navigationTitle
     }
 
 
@@ -38,22 +43,21 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
 
-        return 0
+        return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 0
+        return 16
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LibCollectionViewCell
         
-        cell.bookTitle.text = "Book Title"
-        cell.authorName.text = "Author Name"
-        cell.reviewButton.setTitle(Strings().reviewButtonTitle, for: .normal)
-        
-        
+//        let volume = volumeController.volumes[indexPath.row]
+//        cell.volume = volume
+
         return cell
     }
     
@@ -63,21 +67,21 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
     }
     
 
-    // MARK: - Delegates and Interfaces
+    // MARK: - Delegates and Cell Space and Sizes
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
-            return CGSize(width: 325, height: 70)
-        }
+        return CGSize(width: 300, height: 400)
+    }
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             
             return 30.0
-        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSize(width: 0, height: 30)
+        return CGSize(width: 10, height: 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
