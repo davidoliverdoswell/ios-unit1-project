@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "reuseIdentifier"
 
-class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
     let volumeController = VolumeController()
+    
+    var userIsSearching = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,25 +37,12 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         
         // Search Bar
         
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 64, width: Int(UIScreen.main.bounds.width), height: searchBarHeight))
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 64, width: Int(UIScreen.main.bounds.width), height: 50))
         searchBar.tintColor = .black
         searchBar.placeholder = Strings().searchBarPlaceholder
         searchBar.autocorrectionType = .default
-        searchBar.delegate = self
         view.addSubview(searchBar)
-        
-        // Call Dismiss Keyboard
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     }
-    
-    // MARK: - Dismiss Keyboard
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-
 
     // MARK: - DataSources
     
@@ -87,14 +77,14 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         
         
         
-        // show detail
+        // show detail view
         
         let libDetail = LibDetailViewController()
         self.navigationController?.pushViewController(libDetail, animated: true)
     }
     
 
-    // MARK: - Delegates and Cell Space and Sizes
+    // MARK: - Collection View Delegates, Cell Space and Sizes
         
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
@@ -116,11 +106,19 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
         return CGSize(width: 0, height: 50)
     }
     
-    // MARK: - Dismiss keyboard
-
+    // MARK: - Fetch Results Controller
     
-    
-    // Search Bar Height
-    
-    let searchBarHeight = 50
+    lazy var fetchedResultsController: NSFetchedResultsController<Volume> = {
+        
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "books", ascending: false)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "books", cacheName: nil)
+        
+        frc.delegate = self
+        try! frc.performFetch()
+        return frc
+    }()
 }

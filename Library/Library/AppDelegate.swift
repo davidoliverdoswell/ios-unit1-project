@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        // testing authentication
+        
+        // MARK: - Authenticate New User
         
         let viewController = UIViewController()
         

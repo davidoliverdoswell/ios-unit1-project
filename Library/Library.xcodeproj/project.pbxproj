@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6106812212DE1D100D018D3 /* SearchBarXT+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106811212DE1D100D018D3 /* SearchBarXT+Helpers.swift */; };
+		A6106814212E03F500D018D3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106813212E03F500D018D3 /* CoreDataStack.swift */; };
+		A610681D212E05E500D018D3 /* Book.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A610681A212E05E500D018D3 /* Book.xcdatamodeld */; };
+		A6106821212E06FB00D018D3 /* BookRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106820212E06FB00D018D3 /* BookRepresentation.swift */; };
+		A6106823212E072C00D018D3 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106822212E072C00D018D3 /* BookController.swift */; };
 		A66173E9212C8BB300885D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66173E8212C8BB300885D35 /* AppDelegate.swift */; };
 		A66173F0212C8BB700885D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66173EF212C8BB700885D35 /* Assets.xcassets */; };
 		A66173F3212C8BB700885D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66173F1212C8BB700885D35 /* LaunchScreen.storyboard */; };
@@ -17,11 +22,9 @@
 		A661740B212C8D1B00885D35 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6617401212C8D0A00885D35 /* GTMSessionFetcher.framework */; };
 		A661740C212C8D1B00885D35 /* GTMSessionFetcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6617401212C8D0A00885D35 /* GTMSessionFetcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A661740F212C8D7C00885D35 /* GoogleBooksAuthorizationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661740E212C8D7C00885D35 /* GoogleBooksAuthorizationClient.swift */; };
-		A6617411212C8FAC00885D35 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6617410212C8FAC00885D35 /* Volume.swift */; };
 		A6617416212CA49C00885D35 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6617415212CA49C00885D35 /* Strings.swift */; };
 		A661741A212CB66600885D35 /* LibCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6617419212CB66500885D35 /* LibCollectionViewCell.swift */; };
 		A661741C212CB6D500885D35 /* LibCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661741B212CB6D500885D35 /* LibCollectionViewController.swift */; };
-		A661741E212CBFE100885D35 /* VolumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A661741D212CBFE100885D35 /* VolumeController.swift */; };
 		A6617421212CE05600885D35 /* LibDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6617420212CE05600885D35 /* LibDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A6106811212DE1D100D018D3 /* SearchBarXT+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBarXT+Helpers.swift"; sourceTree = "<group>"; };
+		A6106813212E03F500D018D3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		A610681B212E05E500D018D3 /* Book.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Book.xcdatamodel; sourceTree = "<group>"; };
+		A610681C212E05E500D018D3 /* Volume.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Volume.xcdatamodel; sourceTree = "<group>"; };
+		A6106820212E06FB00D018D3 /* BookRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepresentation.swift; sourceTree = "<group>"; };
+		A6106822212E072C00D018D3 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		A66173E5212C8BB200885D35 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66173E8212C8BB300885D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A66173EF212C8BB700885D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,11 +60,9 @@
 		A6617402212C8D0B00885D35 /* AppAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppAuth.framework; sourceTree = "<group>"; };
 		A6617403212C8D0B00885D35 /* GTMAppAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMAppAuth.framework; sourceTree = "<group>"; };
 		A661740E212C8D7C00885D35 /* GoogleBooksAuthorizationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleBooksAuthorizationClient.swift; sourceTree = "<group>"; };
-		A6617410212C8FAC00885D35 /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		A6617415212CA49C00885D35 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		A6617419212CB66500885D35 /* LibCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibCollectionViewCell.swift; sourceTree = "<group>"; };
 		A661741B212CB6D500885D35 /* LibCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibCollectionViewController.swift; sourceTree = "<group>"; };
-		A661741D212CBFE100885D35 /* VolumeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeController.swift; sourceTree = "<group>"; };
 		A6617420212CE05600885D35 /* LibDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +134,10 @@
 		A66173FC212C8C0600885D35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A6617410212C8FAC00885D35 /* Volume.swift */,
+				A610681A212E05E500D018D3 /* Book.xcdatamodeld */,
+				A6106820212E06FB00D018D3 /* BookRepresentation.swift */,
+				A6106813212E03F500D018D3 /* CoreDataStack.swift */,
+				A6106811212DE1D100D018D3 /* SearchBarXT+Helpers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,7 +171,7 @@
 		A661741F212CBFE700885D35 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A661741D212CBFE100885D35 /* VolumeController.swift */,
+				A6106822212E072C00D018D3 /* BookController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -237,13 +247,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A610681D212E05E500D018D3 /* Book.xcdatamodeld in Sources */,
+				A6106823212E072C00D018D3 /* BookController.swift in Sources */,
 				A661741C212CB6D500885D35 /* LibCollectionViewController.swift in Sources */,
 				A6617421212CE05600885D35 /* LibDetailViewController.swift in Sources */,
 				A661740F212C8D7C00885D35 /* GoogleBooksAuthorizationClient.swift in Sources */,
 				A66173E9212C8BB300885D35 /* AppDelegate.swift in Sources */,
-				A6617411212C8FAC00885D35 /* Volume.swift in Sources */,
+				A6106814212E03F500D018D3 /* CoreDataStack.swift in Sources */,
+				A6106812212DE1D100D018D3 /* SearchBarXT+Helpers.swift in Sources */,
 				A661741A212CB66600885D35 /* LibCollectionViewCell.swift in Sources */,
-				A661741E212CBFE100885D35 /* VolumeController.swift in Sources */,
+				A6106821212E06FB00D018D3 /* BookRepresentation.swift in Sources */,
 				A6617416212CA49C00885D35 /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +455,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A610681A212E05E500D018D3 /* Book.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A610681B212E05E500D018D3 /* Book.xcdatamodel */,
+				A610681C212E05E500D018D3 /* Volume.xcdatamodel */,
+			);
+			currentVersion = A610681B212E05E500D018D3 /* Book.xcdatamodel */;
+			path = Book.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A66173DD212C8BB200885D35 /* Project object */;
 }
