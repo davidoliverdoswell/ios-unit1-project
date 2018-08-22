@@ -13,7 +13,7 @@ private let reuseIdentifier = "reuseIdentifier"
 
 class LibCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
-    let volumeController = VolumeController()
+    let bookController = BookController()
     
     var userIsSearching = Bool()
     
@@ -108,9 +108,9 @@ class LibCollectionViewController: UICollectionViewController, UICollectionViewD
     
     // MARK: - Fetch Results Controller
     
-    lazy var fetchedResultsController: NSFetchedResultsController<Volume> = {
+    lazy var fetchedResultsController: NSFetchedResultsController<Book> = {
         
-        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "books", ascending: false)]
         
         let moc = CoreDataStack.shared.mainContext

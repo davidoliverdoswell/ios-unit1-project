@@ -10,7 +10,7 @@ import UIKit
 
 class LibCollectionViewCell: UICollectionViewCell {
     
-    var volume: Volume? {
+    var book: Book? {
         didSet {
             setUpViews()
         }
