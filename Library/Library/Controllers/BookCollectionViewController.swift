@@ -19,6 +19,11 @@ class BookCollectionViewController: UICollectionViewController, UICollectionView
     
     let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
 
+    // MARK: - Customize Status Bar
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()

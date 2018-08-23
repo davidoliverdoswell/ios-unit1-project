@@ -34,29 +34,38 @@ class HomeViewController: UIViewController {
         return label
     }()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    let loginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(Strings().loginButtonTitle, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(logintapped(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @objc func logintapped(sender: UIButton) {
         
-        // MARK: - Authenticate New User or Crash
+        // MARK: - Authenticate New User
         
         let viewController = UIViewController()
         
         GoogleBooksAuthorizationClient.shared.authorizeIfNeeded(presenter: viewController) { (error) in
             if let error = error {
                 NSLog("Error authenticating: \(error)")
-                fatalError("ERROR: \(error)")
+            } else {
+//                let layout = UICollectionViewFlowLayout()
+//                layout.scrollDirection = .horizontal
+                
+//                let bookCollectionViewController = BookCollectionViewController(collectionViewLayout: layout)
+                
+                let bookDetailViewController = BookDetailViewController()
+                self.navigationController?.pushViewController(bookDetailViewController, animated: true)
             }
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
-            
-            let bookCollectionViewController = BookCollectionViewController(collectionViewLayout: layout)
-            
-            let _ = UINavigationController(rootViewController: bookCollectionViewController)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
         
@@ -69,6 +78,7 @@ class HomeViewController: UIViewController {
         
         view.addSubview(libraryLabel)
         view.addSubview(librarySubLabel)
+        view.addSubview(loginButton)
         
         libraryLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         libraryLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -79,6 +89,11 @@ class HomeViewController: UIViewController {
         librarySubLabel.centerYAnchor.constraint(equalTo: libraryLabel.bottomAnchor, constant: 30).isActive = true
         librarySubLabel.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         librarySubLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: librarySubLabel.bottomAnchor, constant: 50).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
     }
 
 }

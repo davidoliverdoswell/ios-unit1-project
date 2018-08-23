@@ -14,6 +14,7 @@ class Strings {
     
     public let libraryText = "Library"
     public let librarySubText = "Search Google Books 👨‍💻"
+    public let loginButtonTitle = "login"
 
     // MARK: - Collection View
     
@@ -24,6 +25,12 @@ class Strings {
 
     public let shareButtonText = "share"
     public let textToShareText = "Check out this cool new book!"
+    public let bookReviewText = """
+
+"Incisive book about how to create dynamic user experiences with customized human-centered interfaces." ––David Doswell
+
+"""
+    public let exploreButtonTitle = "explore"
     
     // MARK: -  Collection Cell
     

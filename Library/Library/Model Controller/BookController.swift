@@ -28,22 +28,24 @@ class BookController {
     
     init() {
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-        searchBookshelves(context: backgroundContext)
+        fetchBookshelves(context: backgroundContext)
     }
     
     
     // MARK: - SERVER CRUD
     
     
-    func searchBookshelves(completion: @escaping CompletionHandler = {_ in}, context: NSManagedObjectContext) {
+    func fetchBookshelves(completion: @escaping CompletionHandler = {_ in}, context: NSManagedObjectContext) {
         
         let requestURL = searchBooksURL.appendingPathExtension("json")
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {
                 NSLog("Error: \(error)")
             }
-            
             guard let data = data else {
                 NSLog("No data")
                 completion(NSError())

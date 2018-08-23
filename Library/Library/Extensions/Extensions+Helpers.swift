@@ -8,20 +8,8 @@
 
 import UIKit
 
+let bookController = BookController()
+
 extension BookCollectionViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        // Find book and display book in index cell
-        
-//        let words = searchBar.text!
-//        let theseWords = words.replacingOccurrences(of: " ", with: "+")
-//
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-    }
-    
+    // DO-OVER
 }
