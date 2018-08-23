@@ -14,6 +14,16 @@ struct BookRepresentation: Codable, Equatable {
     var bookAuthor: String
     var bookImage: Data
     var bookReview: String
-    var haveRead: Bool
     var bookID: String
+    var haveRead: Bool
+    
+    init(bookTitle: String, bookAuthor: String, bookImage: Data, bookReview: String, bookID: String, haveRead: Bool = false) {
+        
+        self.bookTitle = bookTitle
+        self.bookImage = bookImage
+        self.bookAuthor = bookAuthor
+        self.bookReview = bookReview
+        self.bookID = bookID
+        self.haveRead = haveRead
+    }
 }

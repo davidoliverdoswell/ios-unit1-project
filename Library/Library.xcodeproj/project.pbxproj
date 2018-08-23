@@ -15,6 +15,7 @@
 		A6106827212E10AB00D018D3 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106826212E10AB00D018D3 /* BookDetailViewController.swift */; };
 		A6106829212E10FD00D018D3 /* BookCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106828212E10FD00D018D3 /* BookCollectionViewController.swift */; };
 		A610682C212E12E300D018D3 /* Extensions+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610682B212E12E300D018D3 /* Extensions+Helpers.swift */; };
+		A610682E212E234B00D018D3 /* Book+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610682D212E234B00D018D3 /* Book+Convenience.swift */; };
 		A66173E9212C8BB300885D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66173E8212C8BB300885D35 /* AppDelegate.swift */; };
 		A66173F0212C8BB700885D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66173EF212C8BB700885D35 /* Assets.xcassets */; };
 		A66173F3212C8BB700885D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66173F1212C8BB700885D35 /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		A6106826212E10AB00D018D3 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		A6106828212E10FD00D018D3 /* BookCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewController.swift; sourceTree = "<group>"; };
 		A610682B212E12E300D018D3 /* Extensions+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Helpers.swift"; sourceTree = "<group>"; };
+		A610682D212E234B00D018D3 /* Book+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Convenience.swift"; sourceTree = "<group>"; };
 		A66173E5212C8BB200885D35 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66173E8212C8BB300885D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A66173EF212C8BB700885D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				A610681A212E05E500D018D3 /* Book.xcdatamodeld */,
 				A6106813212E03F500D018D3 /* CoreDataStack.swift */,
 				A6106820212E06FB00D018D3 /* BookRepresentation.swift */,
+				A610682D212E234B00D018D3 /* Book+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				A610682C212E12E300D018D3 /* Extensions+Helpers.swift in Sources */,
 				A610681D212E05E500D018D3 /* Book.xcdatamodeld in Sources */,
 				A6106823212E072C00D018D3 /* BookController.swift in Sources */,
+				A610682E212E234B00D018D3 /* Book+Convenience.swift in Sources */,
 				A6106827212E10AB00D018D3 /* BookDetailViewController.swift in Sources */,
 				A661740F212C8D7C00885D35 /* GoogleBooksAuthorizationClient.swift in Sources */,
 				A66173E9212C8BB300885D35 /* AppDelegate.swift in Sources */,
