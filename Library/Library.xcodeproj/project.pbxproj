@@ -16,6 +16,7 @@
 		A6106829212E10FD00D018D3 /* BookCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6106828212E10FD00D018D3 /* BookCollectionViewController.swift */; };
 		A610682C212E12E300D018D3 /* Extensions+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610682B212E12E300D018D3 /* Extensions+Helpers.swift */; };
 		A610682E212E234B00D018D3 /* Book+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610682D212E234B00D018D3 /* Book+Convenience.swift */; };
+		A6106830212E70E200D018D3 /* Book+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A610682F212E70E200D018D3 /* Book+Encodable.swift */; };
 		A66173E9212C8BB300885D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66173E8212C8BB300885D35 /* AppDelegate.swift */; };
 		A66173F0212C8BB700885D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66173EF212C8BB700885D35 /* Assets.xcassets */; };
 		A66173F3212C8BB700885D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66173F1212C8BB700885D35 /* LaunchScreen.storyboard */; };
@@ -56,6 +57,7 @@
 		A6106828212E10FD00D018D3 /* BookCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewController.swift; sourceTree = "<group>"; };
 		A610682B212E12E300D018D3 /* Extensions+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Helpers.swift"; sourceTree = "<group>"; };
 		A610682D212E234B00D018D3 /* Book+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Convenience.swift"; sourceTree = "<group>"; };
+		A610682F212E70E200D018D3 /* Book+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Encodable.swift"; sourceTree = "<group>"; };
 		A66173E5212C8BB200885D35 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66173E8212C8BB300885D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A66173EF212C8BB700885D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				A6106813212E03F500D018D3 /* CoreDataStack.swift */,
 				A6106820212E06FB00D018D3 /* BookRepresentation.swift */,
 				A610682D212E234B00D018D3 /* Book+Convenience.swift */,
+				A610682F212E70E200D018D3 /* Book+Encodable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				A66173E9212C8BB300885D35 /* AppDelegate.swift in Sources */,
 				A6106814212E03F500D018D3 /* CoreDataStack.swift in Sources */,
 				A6106821212E06FB00D018D3 /* BookRepresentation.swift in Sources */,
+				A6106830212E70E200D018D3 /* Book+Encodable.swift in Sources */,
 				A6617416212CA49C00885D35 /* Strings.swift in Sources */,
 				A6106829212E10FD00D018D3 /* BookCollectionViewController.swift in Sources */,
 			);
