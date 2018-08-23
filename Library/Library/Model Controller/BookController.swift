@@ -11,10 +11,13 @@ import CoreData
 
 class BookController {
 
-    // MARK: - URL for API
+    // MARK: - URLs
     
     let baseURL = URL(string: "https://library-214016.firebaseio.com/")!
+    
+    let searchBooksURL = URL(string: "https://www.googleapis.com/books/v1/mylibrary/bookshelves")!
 
+    
     // MARK: - Singleton
     
     let moc = CoreDataStack.shared.mainContext
@@ -34,9 +37,7 @@ class BookController {
     
     func searchBookshelves(completion: @escaping CompletionHandler = {_ in}, context: NSManagedObjectContext) {
         
-        let searchURL = URL(string: "https://www.googleapis.com/books/v1/mylibrary/bookshelves")!
-        
-        let requestURL = searchURL.appendingPathExtension("json")
+        let requestURL = searchBooksURL.appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {

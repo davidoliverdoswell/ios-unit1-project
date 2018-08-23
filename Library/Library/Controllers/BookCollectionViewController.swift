@@ -19,9 +19,7 @@ class BookCollectionViewController: UICollectionViewController, UICollectionView
     
     let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
 
-    
-    var userIsSearching = Bool()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

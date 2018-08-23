@@ -10,17 +10,22 @@ import Foundation
 
 class Strings {
     
+    // MARK: - Home View
+    
+    public let libraryText = "Library"
+    public let librarySubText = "Search Google Books 👨‍💻"
+
     // MARK: - Collection View
     
     public let navigationTitle = "Library"
     public let searchBarPlaceholder = "search books"
  
-    // MARK: - Collection Detail View
+    // MARK: - Collection Detail
 
     public let shareButtonText = "share"
     public let textToShareText = "Check out this cool new book!"
     
-    // MARK: -  Collection View Cell
+    // MARK: -  Collection Cell
     
     public let reviewButtonTitle = "review"
     public let titleForHeader = "Have Not Read" // TODO

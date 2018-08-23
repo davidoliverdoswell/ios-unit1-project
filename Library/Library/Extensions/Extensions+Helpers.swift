@@ -14,9 +14,9 @@ extension BookCollectionViewController: UISearchBarDelegate {
         
         // Find book and display book in index cell
         
-        let words = searchBar.text!
-        let theseWords = words.replacingOccurrences(of: " ", with: "+")
-        
+//        let words = searchBar.text!
+//        let theseWords = words.replacingOccurrences(of: " ", with: "+")
+//
         
     }
     

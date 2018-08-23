@@ -18,26 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        let homeViewController = HomeViewController()
         
-        let bookCollectionViewController = BookCollectionViewController(collectionViewLayout: layout)
-        
-        let navigationController = UINavigationController(rootViewController: bookCollectionViewController)
+        let navigationController = UINavigationController(rootViewController: homeViewController)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        
-        
-        // MARK: - Authenticate New User
-        
-        let viewController = UIViewController()
-        
-        GoogleBooksAuthorizationClient.shared.authorizeIfNeeded(presenter: viewController) { (error) in
-            if let error = error {
-                NSLog("Error authenticating: \(error)")
-            }
-        }
         
         return true
     }

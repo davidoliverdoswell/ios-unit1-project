@@ -43,5 +43,9 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Library would like to access your photos so you can save them</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>
