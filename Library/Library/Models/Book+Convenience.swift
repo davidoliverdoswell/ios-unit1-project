@@ -45,12 +45,5 @@ extension Book {
             let id = bookID else { return nil }
         
         return BookRepresentation(bookTitle: title, bookAuthor: author, bookImage: image, bookReview: review, bookID: id)
-        
     }
-    
-    
-    
-    
-    
-    
 }

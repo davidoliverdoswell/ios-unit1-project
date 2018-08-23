@@ -10,13 +10,19 @@ import Foundation
 
 class Strings {
     
-    // MARK: - Table view
+    // MARK: - Collection View
     
     public let navigationTitle = "Library"
     public let searchBarPlaceholder = "search books"
+ 
+    // MARK: - Collection Detail View
+
+    public let shareButtonText = "share"
+    public let textToShareText = "Check out this cool new book!"
     
-    // MARK: -  Table view cell
+    // MARK: -  Collection View Cell
     
     public let reviewButtonTitle = "review"
     public let titleForHeader = "Have Not Read" // TODO
+    
 }

@@ -10,37 +10,17 @@ import UIKit
 
 extension BookCollectionViewController: UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-        // Display possible list of google books
-        
-        userIsSearching = true
-        
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
-        // Dismiss keyboard
-        
-        userIsSearching = false
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         // Find book and display book in index cell
         
-        userIsSearching = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        let words = searchBar.text!
+        let theseWords = words.replacingOccurrences(of: " ", with: "+")
         
-        // Call dismiss keyboard
         
-        userIsSearching = false
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         
     }
     

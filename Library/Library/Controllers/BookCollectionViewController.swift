@@ -13,7 +13,12 @@ private let reuseIdentifier = "reuseIdentifier"
 
 class BookCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NSFetchedResultsControllerDelegate {
     
+    // MARK: - Book Controller References
+    
     let bookController = BookController()
+    
+    let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
+
     
     var userIsSearching = Bool()
     
@@ -45,7 +50,7 @@ class BookCollectionViewController: UICollectionViewController, UICollectionView
         
         // Call Dismiss Keyboard
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -54,6 +59,14 @@ class BookCollectionViewController: UICollectionViewController, UICollectionView
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    // MARK: - Refresh Table
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView?.reloadData()
     }
     
     // MARK: - Fetch Results Controller
@@ -118,19 +131,21 @@ class BookCollectionViewController: UICollectionViewController, UICollectionView
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 1
+        return fetchedResultsController.sections?.count ?? 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 7
-        
-        //        return fetchedResultsController.fetchedObjects?.count ?? 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BookCell
+        
+        let book = fetchedResultsController.object(at: indexPath)
+        
+        cell.bookImage.image = UIImage(data: book.bookImage!)
         
         return cell
     }

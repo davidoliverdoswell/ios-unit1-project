@@ -13,7 +13,7 @@ class BookController {
 
     // MARK: - URL for API
     
-    let baseURL = URL(string: "https://www.googleapis.com/books/v1/volumes")!
+    let baseURL = URL(string: "https://library-214016.firebaseio.com/")!
 
     // MARK: - Singleton
     
@@ -25,16 +25,18 @@ class BookController {
     
     init() {
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
-        fetchBooksFromBookshelf(context: backgroundContext)
+        searchBookshelves(context: backgroundContext)
     }
     
     
     // MARK: - SERVER CRUD
     
     
-    func fetchBooksFromBookshelf(completion: @escaping CompletionHandler = {_ in}, context: NSManagedObjectContext) {
+    func searchBookshelves(completion: @escaping CompletionHandler = {_ in}, context: NSManagedObjectContext) {
         
-        let requestURL = baseURL.appendingPathExtension("json")
+        let searchURL = URL(string: "https://www.googleapis.com/books/v1/mylibrary/bookshelves")!
+        
+        let requestURL = searchURL.appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             if let error = error {
@@ -47,26 +49,24 @@ class BookController {
                 return
             }
             
-            context.performAndWait {
-                do {
-                    let bookRepresentations = Array(try JSONDecoder().decode([String: BookRepresentation].self, from: data).values)
-                    
-                    let backgroundMoc = CoreDataStack.shared.container.newBackgroundContext()
-                    
-                    // Save the context only after the update/creation process is complete
-                    
-                    try self.updateBooks(with: bookRepresentations, context: backgroundMoc)
-                    
-                    // Remember that save() itself must be called on the context's private queue using perform() or performAndWait()
-                    
-                    try CoreDataStack.shared.save()
-                    completion(nil)
-                    
-                } catch {
-                    NSLog("Error: \(error)")
-                    completion(error)
-                    return
-                }
+            do {
+                let bookRepresentations = try JSONDecoder().decode(BookRepresentation.self, from: data)
+                
+                let backgroundMoc = CoreDataStack.shared.container.newBackgroundContext()
+                
+                // Save the context only after the update/creation process is complete
+                
+                try self.updateBooks(with: [bookRepresentations], context: backgroundMoc)
+                
+                // Remember that save() itself must be called on the context's private queue using perform() or performAndWait()
+                
+                try CoreDataStack.shared.save()
+                completion(nil)
+                
+            } catch {
+                NSLog("Error fetching books: \(error)")
+                completion(error)
+                return
             }
         }.resume()
     }
@@ -131,7 +131,7 @@ class BookController {
         }.resume()
     }
     
-    func deleteBookFromServer(book: Book, completion: @escaping CompletionHandler = {_ in}) {
+    func deleteBookFromBookshelf(book: Book, completion: @escaping CompletionHandler = {_ in}) {
         
         guard let id = book.bookID else { return }
         
@@ -158,7 +158,7 @@ class BookController {
     private func readBook(with uuid: UUID, context: NSManagedObjectContext) -> Book? {
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
         
-        fetchRequest.predicate = NSPredicate(format: "identifier == %@", uuid as NSUUID)
+        fetchRequest.predicate = NSPredicate(format: "bookID == %@", uuid as NSUUID)
         
         do {
             return try context.fetch(fetchRequest).first
@@ -176,7 +176,7 @@ class BookController {
     
     func delete(book: Book) {
         moc.delete(book)
-        deleteBookFromServer(book: book)
+        deleteBookFromBookshelf(book: book)
     }
     
     

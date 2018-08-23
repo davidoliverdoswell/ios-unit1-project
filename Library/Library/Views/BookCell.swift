@@ -46,12 +46,10 @@ class BookCell: UICollectionViewCell {
         return name
     }()
     
-    let bookReview: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitleColor(.blue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let bookImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
     // MARK: - Subview Constraints
@@ -60,7 +58,7 @@ class BookCell: UICollectionViewCell {
         
         addSubview(bookTitle)
         addSubview(bookAuthor)
-        addSubview(bookReview)
+        addSubview(bookImage)
         
         // Cell
         
@@ -82,10 +80,10 @@ class BookCell: UICollectionViewCell {
         bookAuthor.widthAnchor.constraint(equalToConstant: 145).isActive = true
         bookAuthor.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
-        bookReview.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        bookReview.rightAnchor.constraint(equalTo: rightAnchor, constant: 2).isActive = true
-        bookReview.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        bookReview.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        bookImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+        bookImage.rightAnchor.constraint(equalTo: rightAnchor, constant: 2).isActive = true
+        bookImage.widthAnchor.constraint(equalToConstant: 75).isActive = true
+        bookImage.heightAnchor.constraint(equalToConstant: 17).isActive = true
     }
     
 }
